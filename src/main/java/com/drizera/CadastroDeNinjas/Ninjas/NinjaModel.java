@@ -1,5 +1,6 @@
-package com.drizera.CadastroDeNinjas;
+package com.drizera.CadastroDeNinjas.Ninjas;
 
+import com.drizera.CadastroDeNinjas.Missoes.MissaoModel;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,6 +13,11 @@ public class NinjaModel {
     private String nome;
     private String email;
     private int idade;
+
+    //Um ninja só pode ter uma única missão
+    @ManyToOne
+    @JoinColumn(name = "missoes_id") //Chave estrangeira
+    private MissaoModel missao;
 
     public NinjaModel() {
     }
